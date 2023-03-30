@@ -1,0 +1,166 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+      @content;
+    }
+}
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+      @content;
+    }
+}
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+      @content;
+    }
+}
+
+.cardContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formContainer{
+    align-items: center;
+    justify-content: center;
+}
+
+.home{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .container{
+        border: 1px solid black;
+        border-radius: 10px;
+        width: 65%;
+        height: 80%;
+        display: flex;
+        overflow: hidden;
+
+        .sidebar{
+            flex: 1; 
+            border-right: 1px solid black; 
+
+            .navbar{
+                border-bottom: 1px dashed black;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 50px;
+            }
+
+            .logo{
+                font-weight: bold;
+            }
+
+            .search {
+                border-bottom: 1px solid gray;
+        
+                .searchForm {
+                  padding: 10px;
+        
+                  input {
+                    background-color: transparent;
+                    border: none;
+                    border-bottom: 1px solid blue;
+                    outline: none;
+                  }
+                }
+              }
+            
+            .userChat{
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                &:hover{
+                    background-color: gray;
+                }
+            }
+
+            .userChatInfo{
+                span{font-size: 18px; font-weight: 500;}
+                p{font-size: 14px; color: lightgray;}
+            }
+        }
+        .chat{
+            flex: 2;
+
+            .chatInfo{
+                height: 50px;
+                display: flex;
+                align-items: center;
+                border-bottom: 1px double black;
+                padding: 10px;
+            }
+
+            .messages{
+                padding: 10px;
+                height: calc(100% - 100px);
+                overflow: scroll;
+
+                .message{
+                    display: flex;
+                    gap: 20px;
+                    margin-bottom: 20px;
+
+                    .messageInfo{
+                        display: flex;
+                        flex-direction: column;
+                        color: lightgray;
+
+                    }
+                    .messageContent{
+                        max-width: 80%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+
+                        p{
+                            padding: 10px;
+                            border: 1px dotted blueviolet;
+                            border-radius: 0px 10px 10px 10px;
+                        }
+                    }
+
+                    &.owner{
+                        flex-direction: row-reverse;
+            
+                        .messageContent {
+                          align-items: flex-end;
+                          p {
+                            background-color: #8da4f1;
+                            color: white;
+                            border-radius: 10px 0px 10px 10px;
+                          }
+                        }
+                    }
+                }
+            }
+
+            .input{
+                height: 50px;
+                border-top: 1px dotted black;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                input{
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                    font-size: 18px;
+                }
+
+                .send{
+                    display: flex;
+                    gap: 10px;
+                }
+            }
+        }
+    }
+}
